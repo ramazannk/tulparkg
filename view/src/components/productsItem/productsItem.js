@@ -13,7 +13,7 @@ const ProductItem = () => {
     useEffect(() => {
         const fetch = async () => {
             try{
-                const res = await axios.get('http://localhost:4000')
+                const res = await axios.get('http://localhost:4000/homepage')
                 setitem(res.data)
            }catch(err){
                console.log(err)
