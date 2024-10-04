@@ -1,4 +1,3 @@
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import axios from 'axios';
 import { useEffect, useState, useRef} from 'react';
 import { useLocation } from 'react-router-dom';
@@ -74,14 +73,14 @@ const Car = () => {
       </div>
       <div className="car__map">
         {/* <button onClick={getProduct}>click me</button> */}
-        <YMaps query={{ apikey: '9323fbcd-9df0-4d4b-a80f-9d93b4eeaced' }}>
+        {/* <YMaps query={{ apikey: '9323fbcd-9df0-4d4b-a80f-9d93b4eeaced' }}>
           <Map
             defaultState={{ center: [locat.lat, locat.lng], zoom: 10 }}
             width="100%" height="400px"
           >
             <Placemark geometry={[locat.lat, locat.lng]} />
           </Map>
-        </YMaps>
+        </YMaps> */}
       </div>
     </div>
   );
