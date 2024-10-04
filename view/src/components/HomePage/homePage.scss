@@ -1,0 +1,53 @@
+.main{
+    padding-top: 40px;
+    &__upLoad{
+        display: flex;
+        justify-content: space-between;
+        width: 800px;
+        height: 208px;
+    }
+    &__data{
+        display: block;
+        margin-left: 30px;
+        margin-top: 5px;
+        border: 0;
+    }
+    &__datainput{
+        width: 350px;
+        height: 25px;
+        margin-bottom: 4px;
+        border-radius: 3px;
+        &-desc{
+            width: 350px;
+            height: 80px;
+            margin-bottom: 4px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+        }
+    }
+    &__container{
+        margin: 0 120px;
+    }
+    &__plus-button{
+        width: 163px; /* Set width */
+        height: 208px; /* Set height */
+        font-size: 40px; /* Larger font size for the plus sign */
+        font-weight: bold;
+        background-color: #fff; /* Background color */
+        color: #000; /* Text color */
+        border: none; /* Remove borders */
+        cursor: pointer; /* Pointer cursor on hover */
+        display: inline-flex; /* Align the text inside the button */
+        justify-content: center; /* Center the plus sign horizontally */
+        align-items: center; /* Center the plus sign vertically */
+        border-radius: 7px;
+        border: 2px solid #000;
+    }
+    &__item{
+        img{
+            width: 183px;
+            height: 204px;
+            border-radius: 5px;
+        }
+    }
+}

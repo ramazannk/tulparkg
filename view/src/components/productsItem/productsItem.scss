@@ -1,0 +1,15 @@
+.productItem{
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    gap: 30px;
+    padding-top: 50px;
+    &__item{
+        width: 200px;
+        height: 250px;
+        img{
+            width: 200px;
+            height: 204px;
+            border-radius: 5px;
+        }
+    }
+}

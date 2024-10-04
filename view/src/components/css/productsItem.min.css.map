@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,AAAA,CACR,OAAO,CAAE,IAAI,CACb,qBAAqB,CAAE,gBAAgB,CACvC,GAAG,CAAE,IAAI,CACT,WAAW,CAAE,IAAI,CAUpB,AATI,AAAD,kBAAO,AAAA,CACH,KAAK,CAAE,KAAK,CACZ,MAAM,CAAE,KAAK,CAMhB,AARA,AAGG,kBAHG,CAGH,GAAG,AAAA,CACC,KAAK,CAAE,KAAK,CACZ,MAAM,CAAE,KAAK,CACb,aAAa,CAAE,GAAG,CACrB",
+    "sources": [
+        "../productsItem/productsItem.scss"
+    ],
+    "names": [],
+    "file": "productsItem.min.css"
+}

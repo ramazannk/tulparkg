@@ -1,0 +1,2 @@
+.productItem{display:-ms-grid;display:grid;-ms-grid-columns:(200px)[5];grid-template-columns:repeat(5, 200px);gap:30px;padding-top:50px}.productItem__item{width:200px;height:250px}.productItem__item img{width:200px;height:204px;border-radius:5px}
+/*# sourceMappingURL=productsItem.min.css.map */
