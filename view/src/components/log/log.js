@@ -23,7 +23,7 @@ const Log = () => {
         }
 
         try {
-            await axios.post('http://localhost:4000/login', data)
+            await axios.post('https://tulparkg-backend.vercel.app/login', data)
                   .then(res => {
                     login();
                     console.log(res.data)
