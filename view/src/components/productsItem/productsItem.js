@@ -28,7 +28,7 @@ const ProductItem = () => {
     const onDelete = async(elem) => {
         console.log(elem.id)
         try{
-            await axios.delete(`https://tulparkg-backend.vercel.app//delete/${elem.id}`)
+            await axios.delete(`https://tulparkg-backend.vercel.app/delete/${elem.id}`)
             .then(res => {
                 return res.data
             })
