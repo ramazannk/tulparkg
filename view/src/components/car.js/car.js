@@ -28,7 +28,7 @@ const Car = () => {
 
   const upDate = async (lat, lng) => {
     try {
-      await axios.post(`http://localhost:4000/submit/car/${id}`, { lat, lng });
+      await axios.post(`https://tulparkg-backend.vercel.app/submit/car/${id}`, { lat, lng });
       console.log("Location updated in database:", { lat, lng });
     } catch (err) {
       console.log("Error updating location:", err);

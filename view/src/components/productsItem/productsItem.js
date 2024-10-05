@@ -13,7 +13,7 @@ const ProductItem = () => {
     useEffect(() => {
         const fetch = async () => {
             try{
-                const res = await axios.get('http://localhost:4000/homepage')
+                const res = await axios.get('https://tulparkg-backend.vercel.app/homepage')
                 setitem(res.data)
            }catch(err){
                console.log(err)
@@ -28,7 +28,7 @@ const ProductItem = () => {
     const onDelete = async(elem) => {
         console.log(elem.id)
         try{
-            await axios.delete(`http://localhost:4000/delete/${elem.id}`)
+            await axios.delete(`https://tulparkg-backend.vercel.app//delete/${elem.id}`)
             .then(res => {
                 return res.data
             })
@@ -46,35 +46,7 @@ const ProductItem = () => {
             car: item.car,
             desc: item.desc
         } });
-        // function base64ToBlob(base64String) {
-        //     try {
-        //         // Ensure the string has correct padding
-        //         let paddedBase64String = base64String.padEnd(base64String.length + (base64String.length % 4), '=');
-        //         let binary = atob(paddedBase64String);  // Decode base64
-        //         let length = binary.length;
-        //         let bytes = new Uint8Array(length);
-        //         for (let i = 0; i < length; i++) {
-        //             bytes[i] = binary.charCodeAt(i);
-        //         }
-        //         return new Blob([bytes], { type: 'image/png' });
-        //     } catch (e) {
-        //         console.error('Error decoding Base64:', e);
-        //     }
-        // }
         
-        // const imgBlob = base64ToBlob(item.img, 'image/jpeg');
-        // const formData = new FormData();
-        //     formData.append('id', item.id);
-        //     formData.append('name', item.name);
-        //     formData.append('productName', item.productName);
-        //     formData.append('desc', item.desc);
-        //     formData.append('car', item.car);
-        //     formData.append('img', imgBlob);
-        // try{
-        //     await axios.post('http://localhost:4000/submit/car', formData).then(res => console.log(res.data))
-        // }catch(err){
-        //     console.error("Error posting data: ", err);
-        // } 
     };
     
     const View = () => {

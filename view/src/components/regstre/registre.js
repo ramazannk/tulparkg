@@ -23,7 +23,7 @@ const Registre = () => {
 
         try {
             // Use JSON format for sending the data
-            const res = await axios.post('http://localhost:4000/register', data, {
+            const res = await axios.post('https://tulparkg-backend.vercel.app//register', data, {
                 headers: {
                     'Content-Type': 'application/json' // Ensure content-type is JSON
                 }
@@ -32,24 +32,6 @@ const Registre = () => {
         }catch(err){
             console.log(err)
         }
-        // const formData = new FormData();
-        // formData ={
-        //     name, 
-        //     password,
-        //     productId
-        // }
-        // // formData.append('name', name);
-        // // formData.append('password', password);
-        // // formData.append('productId', productId)
-
-        // console.log(name, password, productId)
-
-        // try {
-        //     const res = await axios.post('http://localhost:4000/register', formData);
-        //     console.log('Server Response:', res.data);
-        // } catch (error) {
-        //     console.log(error)
-        // }
     }
 
     
