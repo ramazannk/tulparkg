@@ -44,7 +44,7 @@ const App = () => {
                     />
                     <Route 
                         path="/car" 
-                        element={isLoggedIn ? <Car /> : <Navigate to="/log" />} 
+                        element={<Car />} 
                     />
                 </Routes>
             </div>

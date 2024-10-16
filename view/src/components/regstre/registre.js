@@ -23,7 +23,7 @@ const Registre = () => {
 
         try {
             // Use JSON format for sending the data
-            const res = await axios.post('https://tulparkg-backend.vercel.app/register', data, {
+            const res = await axios.post('http://localhost:4000/register', data, {
                 headers: {
                     'Content-Type': 'application/json' // Ensure content-type is JSON
                 }
