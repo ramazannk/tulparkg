@@ -40,7 +40,7 @@ const Log = ({ login }) => {  // Accept login as prop
                 }
             }else{
                 try {
-                    const res = await axios.post('http://localhost:4000/login/admin', data);
+                    const res = await axios.post('https://tulparkg-backend.vercel.app/login/admin', data);
             
                     if (res.status === 200) {  
                         console.log("ok")
