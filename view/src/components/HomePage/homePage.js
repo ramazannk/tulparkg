@@ -41,7 +41,7 @@ const Main =()=> {
         formData.append('password', password)
 
         try{
-            await axios.post('http://localhost:4000/submit', formData)
+            await axios.post('https://tulparkg-backend.vercel.app/submit', formData)
                 .then(res => {
                     if(res.status === 200){
                         setCar('');

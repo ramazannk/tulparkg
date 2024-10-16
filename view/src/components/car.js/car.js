@@ -28,7 +28,7 @@ const Car = () => {
 
   const upDate = async (id, lat, lng, isConfurim) => {
     try {
-      await axios.post('http://localhost:4000/submit/car', { id, lat, lng, isConfurim });
+      await axios.post('https://tulparkg-backend.vercel.app/submit/car', { id, lat, lng, isConfurim });
       console.log("Location updated in database:", { id, lat, lng });
     } catch (err) {
       console.log("Error updating location:", err);
@@ -38,7 +38,7 @@ const Car = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/homepage');
+        const res = await axios.get('https://tulparkg-backend.vercel.app/homepage');
         setProduct(res.data); // Set product data
         if (res.data.length > 0) {
           setCarId(res.data[0].id); // Assuming first item has the car ID

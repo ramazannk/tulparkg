@@ -13,7 +13,7 @@ const ProductItem = () => {
     useEffect(() => {
         const fetch = async () => {
             try{
-                const res = await axios.get('http://localhost:4000/homepage')
+                const res = await axios.get('https://tulparkg-backend.vercel.app/homepage')
                 setitem(res.data)
            }catch(err){
                console.log(err)

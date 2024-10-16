@@ -14,7 +14,7 @@ const DataProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const result = await axios.get(`http://localhost:4000/getMaps/${id}`);
+        const result = await axios.get(`https://tulparkg-backend.vercel.app/getMaps/${id}`);
         setLocation({
           lat: parseFloat(result.data.latitude), // Ensure it's a number
           lng: parseFloat(result.data.longitude), // Ensure it's a number
