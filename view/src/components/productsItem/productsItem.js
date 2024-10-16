@@ -13,7 +13,7 @@ const ProductItem = () => {
     useEffect(() => {
         const fetch = async () => {
             try{
-                const res = await axios.get('https://tulparkg-backend.vercel.app/homepage')
+                const res = await axios.get('http://localhost:4000/homepage')
                 setitem(res.data)
            }catch(err){
                console.log(err)
@@ -38,7 +38,7 @@ const ProductItem = () => {
     }
     const toggleToCar = async(item) => {
         setId(item.id)
-        navigate('/car', { state: {
+        navigate('/DataProduct', { state: {
             id: item.id,
             name: item.name,
             productName: item.productName,

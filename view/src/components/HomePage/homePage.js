@@ -13,6 +13,7 @@ const Main =()=> {
     const[car, setCar] = useState('');
     const [responseMessage, setResponseMessage] = useState('');
     const[preview, setPreview] = useState(null)
+    const[password, setPassword] = useState('');
     
     
     
@@ -37,9 +38,10 @@ const Main =()=> {
         formData.append('car', car);
 
         formData.append('product', product);
+        formData.append('password', password)
 
         try{
-            await axios.post('https://tulparkg-backend.vercel.app/submit', formData)
+            await axios.post('http://localhost:4000/submit', formData)
                 .then(res => {
                     if(res.status === 200){
                         setCar('');
@@ -110,9 +112,16 @@ const Main =()=> {
                                 className="main__datainput"
                                 value={car}
                                 onChange={(e) => setCar(e.target.value)}/>
+                            <input 
+                                type="password" 
+                                className="registre__password"
+                                value={password}
+                                placeholder="password"
+                                onChange={(e) => setPassword(e.target.value)}/>
+                            <button className="submit" type="submit">send</button>
+                            {responseMessage && <p>{responseMessage}</p>}
                         </div>
-                        <button className="submit" type="submit">send</button>
-                        {responseMessage && <p>{responseMessage}</p>}
+                        
                     </div>
                 </form>
                 <div className="main__card">

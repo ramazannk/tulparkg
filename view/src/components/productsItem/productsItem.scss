@@ -1,13 +1,15 @@
 .productItem{
     display: grid;
-    grid-template-columns: repeat(5, 200px);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, 190px);
+    justify-content: center;
+    justify-items: center;
+    gap: 20px;
     padding-top: 50px;
     &__item{
-        width: 200px;
+        width: 100%;
         height: 250px;
         img{
-            width: 200px;
+            width: 100%;
             height: 204px;
             border-radius: 5px;
         }

@@ -1,6 +1,8 @@
 import { useLocation } from 'react-router-dom'
-import './user.scss'
+
 import loc from '../../view/img/location.png';
+
+import './user.scss'
 
 
 const User = () => {
@@ -25,6 +27,7 @@ const User = () => {
                     <button><img src={loc} alt="location" className="user__chine" />China’s border</button>
                     <button><img src={loc} alt="location" className="user__Kyrgyzstan" />Kyrgyzstan’s border</button>
                 </div>
+                
             </div>
         </div>
     )

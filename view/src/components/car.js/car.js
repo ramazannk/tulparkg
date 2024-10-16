@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState, useRef} from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import loc from '../../view/img/location.png';
 import './car.scss';
 
 const Car = () => {
-  const location = useLocation();
-  const[locat, setLocation] = useState({lat: 0, lng: 0})
-  const { id, name, productName, img, car, desc } = location.state || {};
+  const [locat, setLocation] = useState({ lat: 0, lng: 0 });
+  const [product, setProduct] = useState([]);
+  const [isConfurim, setIsConfurim] = useState(false); // Assuming you have this state
+  const [carId, setCarId] = useState(null);
 
   const getLocation = () => {
     return new Promise((resolve, reject) => {
@@ -16,75 +16,85 @@ const Car = () => {
           const { latitude, longitude } = position.coords;
           setLocation({ lat: latitude, lng: longitude });
           console.log("Location obtained:", latitude, longitude);
-          resolve({ lat: latitude, lng: longitude }); // Resolve with coordinates
+          resolve({ lat: latitude, lng: longitude });
         },
         (error) => {
           console.error("Error getting location:", error);
-          reject(error); // Reject if there's an error
+          reject(error);
         }
       );
     });
   };
 
-  const upDate = async (lat, lng) => {
+  const upDate = async (id, lat, lng, isConfurim) => {
     try {
-      await axios.post(`https://tulparkg-backend.vercel.app/submit/car/${id}`, { lat, lng });
-      console.log("Location updated in database:", { lat, lng });
+      await axios.post('http://localhost:4000/submit/car', { id, lat, lng, isConfurim });
+      console.log("Location updated in database:", { id, lat, lng });
     } catch (err) {
       console.log("Error updating location:", err);
     }
   };
 
   useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await axios.get('http://localhost:4000/homepage');
+        setProduct(res.data); // Set product data
+        if (res.data.length > 0) {
+          setCarId(res.data[0].id); // Assuming first item has the car ID
+        }
+      } catch (err) {
+        console.log("Error fetching product:", err);
+      }
+    };
+
     const updateLocation = async () => {
       try {
-        const { lat, lng } = await getLocation(); // Wait for the location
-        await upDate(lat, lng); // Then update the database
+        const { lat, lng } = await getLocation();
+        if (carId) {
+          await upDate(carId, lat, lng, isConfurim);
+        }
       } catch (err) {
         console.error("Failed to update location:", err);
       }
     };
-    updateLocation(); // Call the async function
-  }, [id]);
 
-  
-  if (!id) {
-    return <div>No data available</div>;
+    fetchProduct(); // Fetch product data first
+    if (carId) {
+      updateLocation(); // Only update location if carId exists
+    }
+  }, [isConfurim, carId]); // Depend on isConfurim and carId
+
+  const gotProduct =()=>{
+    setIsConfurim(true)
   }
+  const Wish = () =>{
+    return(
+      <div className="wish">
+        <h1>Спасибо за сотрудничество!<br/> Счиcтливово пути!</h1>
+      </div>
+    )
+  }
+  
 
+  const View = () => {
+    return product.map(item => (
+      <div key={item.id}>
+        <div className="car__pName">{item.productName}</div>
+        <div className="car__desc">{item.desc}</div>
+        <div className="car__car">{item.car}</div>
+        <button className="car__config" onClick={gotProduct}>Подтверждаю</button>
+      </div>
+    ));
+  };
+  const content = isConfurim ? <Wish/> : <View/>
   return (
     <div className="car">
       <div className="car__container">
-        <div className="car__item">
-          <img src={`data:image/jpeg;base64,${img}`} alt="" />
-        </div>
-        <div className="car__FN">
-          <div className="car__costName">{name}</div>
-          <div className="car__pName">{productName}</div>
-          <div className="car__desc">{desc}</div>
-          <div className="car__car">{car}</div>
-        </div>
-        <div className="car__location">
-          <button><img src={loc} alt="location" className="car__guanzhou" />Guangzhou</button>
-          <button><img src={loc} alt="location" className="car__wurumchi" />Wurumchi</button>
-          <button><img src={loc} alt="location" className="car__chine" />China’s border</button>
-          <button><img src={loc} alt="location" className="car__Kyrgyzstan" />Kyrgyzstan’s border</button>
-        </div>
-      </div>
-      <div className="car__map">
-        {/* <button onClick={getProduct}>click me</button> */}
-        {/* <YMaps query={{ apikey: '9323fbcd-9df0-4d4b-a80f-9d93b4eeaced' }}>
-          <Map
-            defaultState={{ center: [locat.lat, locat.lng], zoom: 10 }}
-            width="100%" height="400px"
-          >
-            <Placemark geometry={[locat.lat, locat.lng]} />
-          </Map>
-        </YMaps> */}
+        {content}
       </div>
     </div>
   );
-}
+};
 
 export default Car;
-// 9323fbcd-9df0-4d4b-a80f-9d93b4eeaced 

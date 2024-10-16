@@ -1,10 +1,44 @@
 .log{
     &__container{
         margin: 0 120px;
+        @media (max-width: 767px) {
+        }
     }
-    form{
-        display: flex;
-        justify-content: center;
+    &__post{
+        display: grid;
         align-items: center;
+        grid-template-rows: 0.5fr 0.3fr 0.3fr 0.3fr 0.3fr ;
+        justify-items: center;
+        gap: 10px;
+    }
+    input{
+        width: 250px;
+        height: 25px;
+        border-radius: 7px;
+    }
+    &__name{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    &__password{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    &__role{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    select{
+        width: 250px;
+        height: 25px;
+        border-radius: 7px;
+    }
+    &__login{
+        width: 100px;
+        background-color: rgb(99, 160, 224);
+        height: 25px;
     }
 }
