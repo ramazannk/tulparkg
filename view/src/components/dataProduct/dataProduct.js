@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 

@@ -5,7 +5,6 @@ import { NavLink  } from "react-router-dom"
 
 import "./menu.scss"
 
-// import "../buttons.scss"
 
 
 const Menu = () => {

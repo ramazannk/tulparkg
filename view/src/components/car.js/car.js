@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import loc from '../../view/img/location.png';
 import './car.scss';
 
 const Car = () => {
